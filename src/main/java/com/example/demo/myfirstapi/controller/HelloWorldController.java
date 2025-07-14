@@ -20,6 +20,7 @@ public class HelloWorldController {
         return String.format("Hello %s! \n",name);
     }
 
+    @GetMapping("/greeting")
     public String greetWithParam(
             @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
         return "Hello, " + name + "!";
