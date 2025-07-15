@@ -5,6 +5,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Value;
 
 import org.springframework.web.bind.annotation.RequestParam; //New import, challenge lab 2,
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @RestController // Marks this class as a REST controller
 public class HelloWorldController {
     @Value("${app.greeting.message}")
@@ -28,5 +34,19 @@ public class HelloWorldController {
     @GetMapping("/calculate/sum")
     public String sumNumbers( @RequestParam("num1") int number1, @RequestParam("num2") int number2) {
         int sum = number1 + number2; return "The sum of " + number1 + " and " + number2 + " is " + sum;
+    }
+
+    @GetMapping("/info")
+    public Map<String, String> getAppInfo() {
+        Map<String, String> info = new HashMap<>();
+        info.put("appName", "MyFirstSpringBootAPI");
+        info.put("version","nick 1.0.0");
+        info.put("status" , "Running but barely");
+        return info;
+    }
+
+    @GetMapping("return_info_list")
+    public List<String> getFeatures(){
+        return Arrays.asList("REST API- Nicholo Pardines","Spring Boot","Easy Setup and Fast Development");
     }
 }
