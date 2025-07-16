@@ -26,10 +26,9 @@ public class HelloWorldController {
         return String.format("Hello %s! \n",name);
     }
 /* !CHALLENGE LAB 2 -----------------------------------*/
-    @GetMapping("/greeting")
-    public String greetWithParam(
-            @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
-        return "Hello, " + name + "!";
+    @GetMapping("/greet/{name}") // Path now matches and expects /greet/<name>, name is dynamic
+    public String greetPerson(@PathVariable String name){
+        return String.format("Hello, %s!\n",name);
     }
     @GetMapping("/calculate/sum")
     public String sumNumbers( @RequestParam("num1") int number1, @RequestParam("num2") int number2) {

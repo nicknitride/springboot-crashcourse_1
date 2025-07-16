@@ -23,7 +23,7 @@ public class HelloWorldController {
 
     @GetMapping("/greet/{name}") // Path now matches and expects /greet/<name>, name is dynamic
     public String greetPerson(@PathVariable String name){
-        return String.format("Hello %s! \n",name);
+        return String.format("Hello, %s!\n",name);
     }
 
     @GetMapping("/greeting")
