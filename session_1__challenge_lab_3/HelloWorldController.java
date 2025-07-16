@@ -18,14 +18,17 @@ public class HelloWorldController {
 
     @GetMapping("/hello") // Maps HTTP GET requests to the "/hello" URL
     public String sayHello() {
-        return "Hello, Spring Boot Learners!\n"+customGreeting;
+        return  customGreeting;
     }
 
     @GetMapping("/greet/{name}") // Path now matches and expects /greet/<name>, name is dynamic
     public String greetPerson(@PathVariable String name){
-        return String.format("Hello %s! \n",name);
+        return String.format("Hello, %s!\n",name);
     }
 
+    /*
+    Challenge Lab 2
+     */
     @GetMapping("/greeting")
     public String greetWithParam(
             @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
@@ -36,7 +39,7 @@ public class HelloWorldController {
         int sum = number1 + number2; return "The sum of " + number1 + " and " + number2 + " is " + sum;
     }
 
-/* Challenge Lab 3 --------------------------------------*/
+    /* Challenge Lab 3 --------------------------------------*/
     @GetMapping("/info")
     public Map<String, String> getAppInfo() {
         Map<String, String> info = new HashMap<>();

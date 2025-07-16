@@ -18,35 +18,40 @@ public class HelloWorldController {
 
     @GetMapping("/hello") // Maps HTTP GET requests to the "/hello" URL
     public String sayHello() {
-        return "Hello, Spring Boot Learners!\n"+customGreeting;
+        return  customGreeting;
     }
 
     @GetMapping("/greet/{name}") // Path now matches and expects /greet/<name>, name is dynamic
     public String greetPerson(@PathVariable String name){
-        return String.format("Hello %s! \n",name);
-    }
-/* !CHALLENGE LAB 2 -----------------------------------*/
-    @GetMapping("/greet/{name}") // Path now matches and expects /greet/<name>, name is dynamic
-    public String greetPerson(@PathVariable String name){
         return String.format("Hello, %s!\n",name);
+    }
+
+    /*
+    Challenge Lab 2
+     */
+    @GetMapping("/greeting")
+    public String greetWithParam(
+            @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
+        return "Hello, " + name + "!";
     }
     @GetMapping("/calculate/sum")
     public String sumNumbers( @RequestParam("num1") int number1, @RequestParam("num2") int number2) {
         int sum = number1 + number2; return "The sum of " + number1 + " and " + number2 + " is " + sum;
     }
-/* !CHALLENGE LAB 2 -----------------------------------*/
 
+    /* Challenge Lab 3 --------------------------------------*/
     @GetMapping("/info")
     public Map<String, String> getAppInfo() {
         Map<String, String> info = new HashMap<>();
         info.put("appName", "MyFirstSpringBootAPI");
-        info.put("version","nick 1.0.0");
-        info.put("status" , "Running but barely");
+        info.put("version", "1.0.0");
+        info.put("status", "Running");
         return info;
     }
 
-    @GetMapping("return_info_list")
-    public List<String> getFeatures(){
-        return Arrays.asList("REST API- Nicholo Pardines","Spring Boot","Easy Setup and Fast Development");
+    @GetMapping("/features")
+    public List<String> getFeatures() {
+        return Arrays.asList("REST API", "Spring Boot", "Easy Setup", "Fast Development");
     }
+    /* Challenge Lab 3 --------------------------------------*/
 }

@@ -26,6 +26,9 @@ public class HelloWorldController {
         return String.format("Hello, %s!\n",name);
     }
 
+    /*
+    Challenge Lab 2
+     */
     @GetMapping("/greeting")
     public String greetWithParam(
             @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
