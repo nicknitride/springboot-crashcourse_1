@@ -18,11 +18,7 @@ public class HelloWorldController {
 
     @GetMapping("/hello") // Maps HTTP GET requests to the "/hello" URL
     public String sayHello() {
-        if(customGreeting){
-            return customGreeting
-        } else{
-            return "Hello Springboot learners!"
-        };
+        return customGreeting;
     }
 
     @GetMapping("/greet/{name}") // Path now matches and expects /greet/<name>, name is dynamic
