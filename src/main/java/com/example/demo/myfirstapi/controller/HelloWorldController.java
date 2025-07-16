@@ -41,14 +41,14 @@ public class HelloWorldController {
     public Map<String, String> getAppInfo() {
         Map<String, String> info = new HashMap<>();
         info.put("appName", "MyFirstSpringBootAPI");
-        info.put("version","nick 1.0.0");
-        info.put("status" , "Running but barely");
+        info.put("version", "1.0.0");
+        info.put("status", "Running");
         return info;
     }
 
-    @GetMapping("return_info_list")
-    public List<String> getFeatures(){
-        return Arrays.asList("REST API- Nicholo Pardines","Spring Boot","Easy Setup and Fast Development");
+    @GetMapping("/features")
+    public List<String> getFeatures() {
+        return Arrays.asList("REST API", "Spring Boot", "Easy Setup", "Fast Development");
     }
     /* Challenge Lab 3 --------------------------------------*/
 }
