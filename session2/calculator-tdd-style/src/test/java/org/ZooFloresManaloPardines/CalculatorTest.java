@@ -49,8 +49,8 @@ class CalculatorTest {
     }
     @Test
     public void testDiffDouble(){
-        double actual = this.calc.difference(5,3);
-        Assertions.assertEquals(2,actual);
+        double actual = this.calc.difference(5d,3d);
+        Assertions.assertEquals(2d,actual);
     }
     @Test
     public void testDiffFloat(){
@@ -75,8 +75,8 @@ class CalculatorTest {
     }
     @Test
     void productDouble(){
-        double actual = this.calc.product(5,5);
-        Assertions.assertEquals(25,actual);
+        double actual = this.calc.product(5d,5d);
+        Assertions.assertEquals(25d,actual);
     }
     @Test
     void productFloat(){
@@ -112,7 +112,7 @@ class CalculatorTest {
     }
     @Test
     void quotientShort(){
-        short actual = (short) this.calc.quotient(5,3);
+        short actual =  this.calc.quotient((short) 5, (short) 3);
         Assertions.assertEquals(((short) 5/3),actual,0.001);
     }
     @Test
@@ -123,7 +123,10 @@ class CalculatorTest {
 
 
 
-
+@Test
+    void divideByZero(){
+    Assertions.assertEquals(Double.POSITIVE_INFINITY,this.calc.quotient(10d, 0d));
+    }
 
 
 

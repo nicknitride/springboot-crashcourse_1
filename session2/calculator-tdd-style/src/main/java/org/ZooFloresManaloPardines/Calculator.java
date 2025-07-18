@@ -24,37 +24,35 @@ public class Calculator {
         try{
             return a/b;
         }catch (ArithmeticException e){
-            System.err.println("Cannot divide by zero"+e.getMessage());
+            throw new ArithmeticException("Cannot divide by zero");
         }
 
-        return 0;
     }
 
     public float quotient(float a,float b){
         try{
             return a/b;
         }catch (ArithmeticException e){
-            System.err.println("Cannot divide by zero"+e.getMessage());
+            throw new ArithmeticException("Cannot divide by zero");
+
         }
-        return 0;
     }
 
     public int quotient(int a,int b){
         try{
             return a/b;
         }catch (ArithmeticException e){
-            System.err.println("Cannot divide by zero"+e.getMessage());
+            throw new ArithmeticException("Cannot divide by zero");
+
         }
-        return 0;
     }
 
     public short quotient(short a,short b){
         try{
             return (short) (a/b);
         }catch (ArithmeticException e){
-            System.err.println("Cannot divide by zero"+e.getMessage());
+            throw new ArithmeticException("Cannot divide by zero");
         }
-        return 0;
     }
 
     public long quotient(long a,long b){
@@ -86,4 +84,8 @@ public class Calculator {
         return (a-b);
     }
 
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println(calc.quotient(0d,0d));
+    }
 }
