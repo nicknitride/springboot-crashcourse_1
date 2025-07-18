@@ -42,6 +42,88 @@ class CalculatorTest {
         Assertions.assertEquals(12,actual, 0.0001);
     }
 
+    @Test
+    public void testDiffInt(){
+        int actual = this.calc.difference(5,3);
+        Assertions.assertEquals(2,actual);
+    }
+    @Test
+    public void testDiffDouble(){
+        double actual = this.calc.difference(5,3);
+        Assertions.assertEquals(2,actual);
+    }
+    @Test
+    public void testDiffFloat(){
+        float actual = this.calc.difference(5f,3f);
+        Assertions.assertEquals(2f,actual);
+    }
+    @Test
+    public void testDiffLong(){
+        long actual = this.calc.difference(5,3);
+        Assertions.assertEquals(2,actual,0.0001);
+    }
+    @Test
+    public void testDiffShort(){
+        short actual = (short) this.calc.difference(5,3);
+        Assertions.assertEquals(2,actual);
+    }
+
+    @Test
+    void productInt(){
+        int actual = this.calc.product(5,5);
+        Assertions.assertEquals(25,actual);
+    }
+    @Test
+    void productDouble(){
+        double actual = this.calc.product(5,5);
+        Assertions.assertEquals(25,actual);
+    }
+    @Test
+    void productFloat(){
+        float actual = this.calc.product(5f,5f);
+        Assertions.assertEquals(25f,actual);
+    }
+    @Test
+    void productLong(){
+        long actual = this.calc.product(5,5);
+        Assertions.assertEquals(25,actual);
+    }
+    @Test
+    void productShort(){
+        short actual = (short) this.calc.product(5,5);
+        Assertions.assertEquals(25,actual);
+    }
+
+    @Test
+    void quotientInt(){
+        int actual = this.calc.quotient(5,3);
+        Assertions.assertEquals((double) 5 /3,actual,0.001);
+    }
+
+    @Test
+    void quotientDouble(){
+        double actual = this.calc.quotient(5,3);
+        Assertions.assertEquals(((double) 5/3),actual,0.001);
+    }
+    @Test
+    void quotientFloat(){
+        float actual = this.calc.quotient(5f,3f);
+        Assertions.assertEquals(((float) 5/3),actual,0.001);
+    }
+    @Test
+    void quotientShort(){
+        short actual = (short) this.calc.quotient(5,3);
+        Assertions.assertEquals(((double) 5/3),actual,0.001);
+    }
+    @Test
+    void quotientLong(){
+        long actual = this.calc.quotient(5,3);
+        Assertions.assertEquals(((double) 5/3),actual,0.001);
+    }
+
+
+
+
 
 
 
