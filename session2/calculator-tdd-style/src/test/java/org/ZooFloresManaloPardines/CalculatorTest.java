@@ -102,7 +102,7 @@ class CalculatorTest {
 
     @Test
     void quotientDouble(){
-        double actual = this.calc.quotient(5,3);
+        double actual = this.calc.quotient(5d,3d);
         Assertions.assertEquals(((double) 5/3),actual,0.001);
     }
     @Test

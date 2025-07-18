@@ -39,6 +39,16 @@ public class Calculator {
         return 0;
     }
 
+    public short quotient(short a,short b){
+        try{
+            return (short) (a/b);
+        }catch (ArithmeticException e){
+            System.err.println("Cannot divide by zero"+e.getMessage());
+        }
+        return 0;
+    }
+
+
     public int product(int a, int b){
         return a*b;
     }
