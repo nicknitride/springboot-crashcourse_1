@@ -60,7 +60,9 @@ class ProductTest {
 
     @Test
     void testEquals() {
-        assertTrue(prod.equals(prod));
+        assertTrue(prod.equals(prod)); // Tests object equal
+        assertFalse(prod.equals(null)); // Tests null false
+        assertFalse(prod.equals("Michael")); // Tests non-matching class
     }
 
     @Test
