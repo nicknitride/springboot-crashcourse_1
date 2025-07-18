@@ -32,13 +32,13 @@ class CalculatorTest {
 
     @Test
     public void testSumShort(){
-        short actual = (short) this.calc.sum(10,2);
-        Assertions.assertEquals(12,actual, 0.0001);
+        short actual = this.calc.sum((short)10,(short)2);
+        Assertions.assertEquals(12,actual);
     }
 
     @Test
     public void testSumLong(){
-        long actual = this.calc.sum(10,2);
+        long actual = this.calc.sum((long) 10,(long) 2);
         Assertions.assertEquals(12,actual, 0.0001);
     }
 
@@ -97,7 +97,7 @@ class CalculatorTest {
     @Test
     void quotientInt(){
         int actual = this.calc.quotient(5,3);
-        Assertions.assertEquals((double) 5 /3,actual,0.001);
+        Assertions.assertEquals(5/3,actual,0.001);
     }
 
     @Test
@@ -113,12 +113,12 @@ class CalculatorTest {
     @Test
     void quotientShort(){
         short actual = (short) this.calc.quotient(5,3);
-        Assertions.assertEquals(((double) 5/3),actual,0.001);
+        Assertions.assertEquals(((short) 5/3),actual,0.001);
     }
     @Test
     void quotientLong(){
-        long actual = this.calc.quotient(5,3);
-        Assertions.assertEquals(((double) 5/3),actual,0.001);
+        long actual = this.calc.quotient((long)5,(long)3);
+        Assertions.assertEquals(((long) 5/3),actual,0.001);
     }
 
 

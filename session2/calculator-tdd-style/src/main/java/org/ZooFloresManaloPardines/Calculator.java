@@ -7,9 +7,18 @@ public class Calculator {
     public double sum(double a, double b){
         return a+b;
     }
+
     public float sum(float a, float b){
         return a+b;
     }
+
+    public short sum(short a, short b){
+        return (short) (a+b);
+    }
+    public long sum(long a, long b){
+        return (a+b);
+    }
+
 
     public double quotient(double a,double b){
         try{
@@ -42,6 +51,15 @@ public class Calculator {
     public short quotient(short a,short b){
         try{
             return (short) (a/b);
+        }catch (ArithmeticException e){
+            System.err.println("Cannot divide by zero"+e.getMessage());
+        }
+        return 0;
+    }
+
+    public long quotient(long a,long b){
+        try{
+            return (a/b);
         }catch (ArithmeticException e){
             System.err.println("Cannot divide by zero"+e.getMessage());
         }
