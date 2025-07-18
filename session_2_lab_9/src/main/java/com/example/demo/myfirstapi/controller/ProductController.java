@@ -4,6 +4,9 @@ import com.example.demo.myfirstapi.model.Product; // Import your Product model
 import com.example.demo.myfirstapi.repository.ProductRepository; // Import your ProductRepository
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.Optional;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -20,5 +23,18 @@ public class ProductController {
     public List<Product> getAllProducts() {
         return productRepository.findAll(); // Call our repository to get all products
     }
-    // We will add methods here in the next steps
+    @GetMapping("/products/{id}") // {id} is a path variable
+    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
+        // Find the product by ID using the repository
+        Optional<Product> product = productRepository.findById(id);
+
+        // Check if the product was found
+        if (product.isPresent()) {
+            // If found, return it with HTTP 200 OK
+            return ResponseEntity.ok(product.get()); // .get() gets the Product from Optional
+        } else {
+            // If not found, return HTTP 404 Not Found
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
